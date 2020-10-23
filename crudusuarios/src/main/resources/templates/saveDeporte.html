@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión deportes</title>
+    <link href="../static/css/bootstrap-grid.min.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="icon" href="&#xf007">
+</head>
+
+<body>
+    <div class="container">
+        <form action="#" th:action="@{/deporte/save}" th:object="${deporte}" method="POST">
+            <div class="form-group"><br>
+                <input type="hidden" id="id" th:field="*{id}">
+                <label for="nombre_deporte">Nombre deporte</label>
+                <input type="text" class="form-control" id="nombre_deporte" th:field="*{nombre_deporte}" name="nombre_deporte">
+                <label for="modalidad">Modalidad</label>
+                <input type="text" class="form-control" id="modalidad" th:field="*{modalidad}" name="modalidad">
+                <label for="num_personas_equipo">Número de jugadores</label>
+                <input type="text" class="form-control" id="num_personas_equipo" th:field="*{num_personas_equipo}" name="num_personas_equipo">
+                <label for="nombre_equipo">Nombre del equipo</label>
+                <input type="text" class="form-control" id="nombre_equipo" th:field="*{nombre_equipo}" name="nombre_equipo">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+</body>
+
+</html>

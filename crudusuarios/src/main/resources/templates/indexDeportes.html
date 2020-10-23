@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión deportes</title>
+    <link href="../static/css/bootstrap-grid.min.css" rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+
+<body>
+
+    <div class="container">
+        <br>
+        <div>
+            <a href="/deporte/save/0" class="btn btn-primary">Nuevo deporte</a>
+        </div><br>
+        <h2 th:if="${list.isEmpty()}">Aún no hay registros</h2>
+        <div th:if="${!list.isEmpty()}">
+            <h2>Deportes</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre deporte</th>
+                        <th>Modalidad</th>
+                        <th>Numero de jugadores</th>
+                        <th>Nombre del equipo</th>
+                        <th>Eliminar</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="deporte : ${list}">
+                        <td th:text="${deporte.nombre_deporte}"></td>
+                        <td th:text="${deporte.modalidad}"></td>
+                        <td th:text="${deporte.num_personas_equipo}"></td>
+                        <td th:text="${deporte.nombre_equipo}"></td>
+                        <td>
+                            <a class="btn btn-primary" th:href="@{/deporte/delete/{id}(id=${deporte.id})}">Eliminar</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" th:href="@{/deporte/save/{id}(id=${deporte.id})}">Editar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
